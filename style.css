@@ -1,0 +1,490 @@
+* {
+    box-sizing: border-box;
+}
+
+/* ================= GLOBAL BACKGROUND ================= */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #444;
+
+    /* МНОГОСЛОЙНЫЙ СКРАП-ФОН */
+    background:
+        url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 60 Q60 10 110 60' stroke='%23ffd6e4' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
+        radial-gradient(circle at 15% 20%, #ffe1ec 0%, transparent 35%),
+        radial-gradient(circle at 85% 30%, #fff0f6 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, #ffeaf2 0%, transparent 40%),
+        linear-gradient(180deg, #faf7f9, #fff 40%, #faf7f9);
+
+    background-size:
+        120px 120px,
+        auto,
+        auto,
+        auto,
+        auto;
+
+    background-repeat: repeat;
+}
+
+/* ================= HERO ================= */
+.hero {
+    padding: 90px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 42px 32px;
+    border-radius: 42px;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+/* ================= TEXT ================= */
+h1, h2 {
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 20px;
+}
+
+.small {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+.names {
+    font-size: 22px;
+}
+
+.date {
+    letter-spacing: 3px;
+}
+
+/* ================= BLOCKS ================= */
+.block {
+    max-width: 680px;
+    margin: 90px auto;
+    padding: 0 22px;
+    text-align: center;
+    position: relative;
+}
+
+.block::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    z-index: -1;
+}
+
+.pastel {
+    background:
+        linear-gradient(180deg, #fff, #ffeef5);
+    padding: 70px 22px;
+    border-radius: 60px;
+}
+
+/* ================= WAVES ================= */
+.wave svg {
+    width: 100%;
+    height: 80px;
+}
+
+.wave path {
+    fill: #ffeef5;
+}
+
+/* ================= PHOTOS ================= */
+.photo.pinned {
+    position: relative;
+    background: white;
+    padding: 14px;
+    border-radius: 20px;
+    box-shadow: 0 25px 35px rgba(0,0,0,0.18);
+    margin: 24px auto;
+    max-width: 280px;
+}
+
+.photo img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.clip {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    width: 34px;
+    height: 50px;
+    border: 4px solid #bcbcbc;
+    border-radius: 16px;
+    transform: translateX(-50%);
+    background: #f5f5f5;
+}
+
+.tilt-left {
+    transform: rotate(-4deg);
+}
+
+.tilt-right {
+    transform: rotate(4deg);
+}
+
+.caption {
+    font-family: 'Pacifico', cursive;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #777;
+}
+
+/* ================= CHILD PHOTOS ================= */
+.child-photos {
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+    flex-wrap: wrap;
+}
+
+/* ================= DOODLE ================= */
+.doodle svg {
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto 0;
+}
+
+.doodle path {
+    fill: none;
+    stroke: #ff8fb1;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    transition: 1.6s ease;
+}
+
+.doodle.visible path {
+    stroke-dashoffset: 0;
+}
+
+/* ================= CALENDAR ================= */
+.calendar .month {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.calendar .grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar span {
+    padding: 10px;
+    background: #ffeef5;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.calendar .wedding {
+    background: #ff8fb1;
+    color: white;
+    font-weight: bold;
+}
+
+/* ================= TIMER ================= */
+.timer {
+    font-size: 26px;
+    background: #fff0f6;
+    padding: 26px;
+    border-radius: 30px;
+}
+
+/* ================= FORM ================= */
+.form-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+/* Стиль для label */
+.form-group label {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Стиль для input, select */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px dashed #f8c8d4; /* Розовая пунктирная рамка */
+    border-radius: 10px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* При фокусе на input/select меняем цвет рамки */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #f8a4b4; /* Яркий розовый цвет для фокуса */
+    outline: none;
+}
+
+/* Убираем подсветку для текста внутри input/select */
+.form-group input::placeholder,
+.form-group select::placeholder {
+    color: #b2b2b2; /* Светло-серый цвет для подсказки */
+}
+
+/* Когда поле заполнено, убираем подсветку */
+.form-group input:valid,
+.form-group select:valid {
+    border-color: #a0d468; /* Цвет для успешно выбранного */
+}
+
+/* Стиль для кнопки */
+.form button {
+    background-color: #ff8fb1; /* Розовая кнопка */
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #f77d9f; /* Светлый оттенок розового при наведении */
+}
+
+
+/* ================= FOOTER ================= */
+.footer {
+    margin-top: 120px;
+    background:
+        radial-gradient(circle at 30% 20%, #fff 0%, transparent 50%),
+        #ffe6ee;
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+.footer-wave {
+    width: 100%;
+    height: 80px;
+}
+
+.footer-wave path {
+    fill: #ffe6ee;
+}
+
+.footer-card {
+    max-width: 420px;
+    margin: -30px auto 0;
+    background: white;
+    padding: 42px 32px;
+    border-radius: 42px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.footer-small {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+.footer-title {
+    font-family: 'Pacifico', cursive;
+    margin: 22px 0;
+}
+
+.footer-names {
+    font-family: 'Pacifico', cursive;
+    font-size: 22px;
+}
+
+.footer-hearts {
+    font-size: 20px;
+    margin: 18px 0;
+}
+
+.footer-date {
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+/* ================= ANIMATION ================= */
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s ease;
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+    .block {
+        margin: 60px auto;
+    }
+
+    .card,
+    .footer-card {
+        padding: 30px 22px;
+        border-radius: 32px;
+    }
+}
+/* ===== FORM CARD BACKGROUND ===== */
+.form-card {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 240, 246, 0.95)
+    );
+    padding: 50px 40px;
+    border-radius: 50px;
+    box-shadow: 0 25px 50px rgba(255,143,177,0.25);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* ===== FORM ALIGNMENT ===== */
+.form.modern {
+    gap: 32px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+/* ===== CHECKBOX ALIGN FIX ===== */
+.options.aligned {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.options.aligned label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #555;
+}
+
+/* CHECKBOX STYLE */
+.options.aligned input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff8fb1;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .form-card {
+        padding: 36px 22px;
+        border-radius: 36px;
+    }
+}
+/* ===== MULTI SELECT WITH UNDERLINE ===== */
+
+.options.aligned label {
+    display: block;
+    padding: 16px 20px;
+    border-radius: 26px;
+    background: rgba(255,255,255,0.7);
+    border: 2px dashed #ffd0df;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* скрываем чекбокс */
+.options.aligned input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+/* лёгкий акцент карточки */
+.options.aligned label:has(input:checked) {
+    border-style: solid;
+    background: rgba(255,143,177,0.12);
+}
+
+
+/* ===== THANK YOU SCREEN ===== */
+.thank-you {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 1s ease forwards;
+}
+
+.thank-you h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.thank-you .handwritten {
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    color: #777;
+    line-height: 1.4;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HANDDRAWN UNDERLINE FOR FOOD & ALCOHOL TITLES ===== */
+
+.form-group > label {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 18px;
+}
+
+/* SVG-линия */
+.form-group > label svg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 14px;
+    overflow: visible;
+}
+
+.form-group > label path {
+    fill: none;
+    stroke: #ff8fb1;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 120;
+    stroke-dashoffset: 120;
+    transition: stroke-dashoffset 0.8s ease;
+}
+
+/* показываем линию ТОЛЬКО если выбран чекбокс */
+.form-group:has(input[type="checkbox"]:checked) path {
+    stroke-dashoffset: 0;
+}
